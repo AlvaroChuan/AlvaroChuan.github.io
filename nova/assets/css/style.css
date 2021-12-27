@@ -205,6 +205,10 @@ body {
     transition-delay: 0.30s;
 }
 
+.feature-display-last2 {
+    transition-delay: 0.45s;
+}
+
 .feature-icon {
     background-color: white;
     border-radius: 50%;
@@ -269,35 +273,32 @@ body {
     z-index: 999;
 }
 
-.pricing-background {
+.projects-background {
     background-color: #F8F9F9;
 }
 
-.pricing-section-header {
+.projects-section-header {
     padding-top: 75px;
 }
 
-.pricing-section-sub {
+.projects-section-sub {
     padding-top: 10px;
     color: grey;
 }
 
-.pricing-table {
+.projects-table {
     padding: 0 0 100px;
     max-width: 1050px;
     margin: auto;
 }
 
-.plan {
-    text-align: center;
-    max-width: 390px;
+.projects-img {
+    padding-top: 25px;
+    max-width: 150px;
     margin: auto;
-    height: 430px;
-    padding: 36px 15px 45px;
-    position: relative;
 }
 
-.mid-plan {
+.plan {
     text-align: center;
     max-width: 390px;
     margin: auto;
