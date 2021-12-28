@@ -1,4 +1,5 @@
-html {
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
+    html {
     box-sizing: border-box;
   }
   
@@ -14,6 +15,7 @@ html {
     font-size: 1rem;
     line-height: 1.25;
     background-color: #18222d;
+    font-family: 'Montserrat', sans-serif;
   }
   
   .grid {
@@ -21,7 +23,6 @@ html {
     max-width: 60rem;
     margin-left: auto;
     margin-right: auto;
-  
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -142,3 +143,63 @@ html {
       15px 15px rgba(4, 140, 231, 0.2), 20px 20px rgba(4, 140, 231, 0.1),
       25px 25px rgba(4, 140, 231, 0.05);
   }
+
+  .slider {
+        width: 1000px;
+        height: 600px;
+        background-color: rgba(255, 255, 255, 0);
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0px;
+        text-align: center;
+        overflow: hidden;
+        border-radius: 30px;
+      }
+      .slider-text{
+          position: relative;
+          text-align: center;
+          top: -640px;
+          background-size: cover;
+          background-color: #18222d28;
+          font-size: large;
+      }
+
+      .image-container {
+        width: 3000px;
+        background-color: rgba(88, 88, 88, 0.582);
+        height: 600px;
+        clear: both;
+        position: relative;
+        -webkit-transition: left 2s;
+        -moz-transition: left 2s;
+        -o-transition: left 2s;
+        transition: left 2s;
+        border-radius: 30px;
+      }
+      .slide {
+        float: left;
+        margin-top: 0px;
+        padding: 0px;
+        position: relative;
+
+      }
+      #slide-1:target ~ .image-container {
+        left: 0px;
+      }
+      #slide-2:target ~ .image-container {
+        left: -1000px;
+      }
+      #slide-3:target ~ .image-container {
+        left: -2000px;
+      }
+      .buttons {
+        position: relative;
+        top: -20px;
+      }
+      .buttons a {
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        border-radius: 50px;
+        background-color: lightgreen;
+      }
