@@ -422,6 +422,7 @@ ul {
     line-height: 22px;
     font-size: 15px;
     margin: auto;
+    text-align: left;
 }
 
 .email-form {
@@ -503,3 +504,9 @@ ul {
     position: absolute;
     max-width: 1280px;
 }
+
+.social-images{
+    margin: 10px;
+    width: 50px;
+    filter: invert(100%);
+  }
