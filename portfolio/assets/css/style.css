@@ -139,7 +139,7 @@ body {
 }
 
 .header-running-text {
-    text-align: center;
+    text-align: justify;
     max-width: 287px;
     line-height: 1.5;
     margin: auto;
