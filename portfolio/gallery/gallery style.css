@@ -214,10 +214,6 @@
         left: -2000px;
       }
 
-      #slide-3:target ~ .image-container {
-        left: -3000px;
-      }
-
       .buttons {
         position: relative;
         top: -20px;
