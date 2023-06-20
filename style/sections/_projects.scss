@@ -54,7 +54,7 @@
     }
 
     &__image {
-      width: 90%;
+      width: 100%;
       margin: 0 auto;
 
       @include respond(tab-land) {
@@ -62,16 +62,45 @@
         margin: 0;
       }
       & .thumbnail {
-        border: none;
-        box-shadow: 8px 8px 9px 7px rgba(174, 174, 192, 0.4),
-          -5px -5px 15px 7px #ffffff;
+        //box-shadow: 8px 8px 9px 7px rgba(174, 174, 192, 0.4),  -5px -5px 15px 7px #ffffff;
+
+        --border-size: 5px;
+        --border-angle: 0turn;
+        width: 97.9%;
+        height: 100%;
+        background-image: conic-gradient(
+            from var(--border-angle),
+            #213,
+            #112 50%,
+            #213
+          ),
+          conic-gradient(from var(--border-angle), transparent 20%, $primary-color, $secondary-color);
+
+        background-size: calc(100% - (var(--border-size) * 2)) calc(100% - (var(--border-size) * 2)), cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+
+        animation: bg-spin 3s linear infinite;
+        @keyframes bg-spin {
+          to {
+            --border-angle: 1turn;
+          }
+        }
 
         .img-fluid {
-          width: 100%;
+          max-width: calc(100% - (var(--border-size) * 2));
+          max-height: calc(100% - (var(--border-size) * 2));
+          width: auto;
           height: auto;
-          vertical-align: middle;
-          border-radius: 2px;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          border-radius: 0px;
         }
+
         @include respond(phone) {
           box-shadow: none;
           border: 1px solid #d2d2d2;
@@ -81,4 +110,9 @@
       }
     }
   }
+}
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
 }
