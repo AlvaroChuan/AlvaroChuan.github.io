@@ -66,8 +66,8 @@
 
         --border-size: 5px;
         --border-angle: 0turn;
-        width: 97.9%;
-        height: 100%;
+        width: fit-content;
+        height: fit-content;
         background-image: conic-gradient(
             from var(--border-angle),
             #213,
@@ -92,18 +92,12 @@
           max-height: calc(100% - (var(--border-size) * 2));
           width: auto;
           height: auto;
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          margin: auto;
-          border-radius: 0px;
+          top: 2.5px;
+          position: relative;
         }
 
         @include respond(phone) {
           box-shadow: none;
-          border: 1px solid #d2d2d2;
           margin-bottom: 3.2rem;
           transform: none;
         }
