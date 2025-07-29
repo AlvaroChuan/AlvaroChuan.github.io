@@ -8,13 +8,13 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
     <!-- Title: add your Portfolio websites's title here -->
-    <title>Álvaro Chuan Díaz-Maroto | Videogame Developer</title>
+    <title>Álvaro Chuan Díaz-Maroto | Game Engineer</title>
 
     <!-- Add some coding keywords below, Ex: (javascript, yourusername, etc) -->
-    <meta name="keywords" content="Hollowblink, Álvaro, C#, Unity" />
+    <meta name="keywords" content="Hollowblink, Álvaro, C#, C++, Unreal Engine, Unity, Godot, Shaders, HLSL, Code debugging" />
 
     <!-- Improve your SEO by adding a small descrption of you -->
-    <meta name="description" content="Álvaro Chuan Díaz-Maroto | Videogame Developer" />
+    <meta name="description" content="Álvaro Chuan Díaz-Maroto | Game Engineer" />
 
     <!-- Add a your png Logo to the assets folder and change the href attr accordingly  -->
     <link rel="icon" type="image/png" href="./assets/logo.png" />
@@ -27,9 +27,9 @@
     <!-- Fill content with the URL of this portfolio you'll host -->
     <meta property="og:url" content="https://alvarochuan.github.io" />
     <!-- Fill content with the title of your portfolio(Recommended to use what you put in <title> tag) -->
-    <meta property="og:title" content="Álvaro Chuan Díaz-Maroto | Videogame Developer" />
+    <meta property="og:title" content="Álvaro Chuan Díaz-Maroto | Game Engineer" />
     <!-- Give a short description that'll show up when you/someone shares your portfolio on different platform -->
-    <meta property="og:description" content="Videogame developer portfolio of Álvaro Chuan Díaz-Maroto" />
+    <meta property="og:description" content="Game engineer portfolio of Álvaro Chuan Díaz-Maroto" />
     <!-- Add a thumbnail image in assets folder and fill the content attr with URL to that thumbnail
       so that a thumbnail image of your portfolio is shown while shared on other platform -->
     <meta
@@ -42,7 +42,7 @@
     <!-- Again fill content attr with the URL of this portfolio you'll host -->
     <meta property="twitter:url" content="https://devfolio.js.org" />
     <!-- Recommended to use the same text used within <title> element -->
-    <meta property="twitter:title" content="Álvaro Chuan Díaz-Maroto | Videogame Developer" />
+    <meta property="twitter:title" content="Álvaro Chuan Díaz-Maroto | Game Engineer" />
     <!-- short description that shows up while your portfolio is shared -->
     <meta
       property="twitter:description"
@@ -80,7 +80,7 @@
         <h1 class="hero-title">
           Hi, my name is <span class="text-color-main name">Álvaro Chuan Díaz-Maroto</span>
           <br />
-          I'm a student of videogame development at UJI university.
+          I'm a game engineer graduated from the videogame development degree at UJI university.
         </h1>
         <p class="hero-cta">
           <a class="cta-btn cta-btn--hero" href="#about">Get to know me</a>
@@ -108,17 +108,17 @@
           </div>
           <div class="about-wrapper__info">
             <p class="about-wrapper__info-text">
-              Hi, I'm Álvaro Chuan Díaz-Maroto, a videogame developer student at UJI university.
+              Hi, I'm Álvaro Chuan Díaz-Maroto, a game engineer graduated from the videogame development degree at UJI university.
               Thanks for visiting my portfolio website.
             </p>
             <p class="about-wrapper__info-text">
-              I'm a passionate videogame developer that loves to create games and experiment with new technologies.
+              I'm a passionate game engineer that loves to create games and experiment with new technologies.
               I'm mainly interested in <b>coding and procedural generation</b>. I'm a hard-working team player that
               wants to pursue his dream of joining this industry. Here you will find all the projects that I have been working on
               during my studies and in my free time. I hope you like them!
             </p>
             <span class="about-wrapper__cta">
-              <a href="assets/cv_2025_en.pdf" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn--resume">View Resume</a>
+              <a href="assets/CV-EN-2025-Álvaro Chuan Díaz-Maroto.pdf" target="_blank" rel="noopener noreferrer" class="cta-btn cta-btn--resume">View Resume</a>
             </span>
           </div>
         </div>
@@ -168,17 +168,95 @@
             </div>
           </article>
 
+          <!-- WFC Tool -->
+          <article class="row">
+            <div class="project-wrapper__text">
+              <h3 class="project-wrapper__text-title">Wave Function Collapse Tool for Unity</h3>
+              <p class="project-wrapper__text-info">
+                 Tool for the procedural generation of 3D environments using a GPU-parallelized version of the
+                 Wave Function Collapse algorithm, integrated within the Unity engine. The
+                 tool enables users to define custom tile sets and adjacency rules to generate
+                 worlds, offering an intuitive interface to manage tile and world creation.
+                 This tool, along with the game below are the result of my Bachelor's thesis done in 2025, that where awarded the hightest
+                 grade in the subject and honors.
+              </p>
+              <div class="project-wrapper__text-btns">
+                <a
+                  href="https://github.com/AlvaroChuan/WFC-Unity-Tool"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn cta-btn--hero cta-btn--projects"
+                  >Source Code</a>
+                <a href="./assets/Bachelor's_Thesis_Chuan_Díaz-Maroto_Álvaro.pdf" target="_blank" class="cta-btn text-color-main"
+                  >Bachelor's thesis</a
+                >
+                </div>
+            </div>
+
+            <div class="project-wrapper__image">
+              <a target="_blank" rel="noopener noreferrer">
+                <div class="thumbnail rounded">
+                  <img
+                    src="./assets/Regio.jpg"
+                    class="img-fluid"
+                    alt="Project Image"
+                    width="1366"
+                    height="767"
+                  />
+                </div>
+              </a>
+            </div>
+          </article>
+
+          <!-- System Scape -->
+          <article class="row">
+            <div class="project-wrapper__text">
+              <h3 class="project-wrapper__text-title">System Scape</h3>
+              <p class="project-wrapper__text-info">
+                 Space exploration game where the player has to scape a dying solar system before its main star goes supernova.
+                 The player has to explore the planets of the solar system, gather resources and upgrade his ship to be able to reach the
+                 last planet and escape the solar system. The game was made using the WFC Tool for Unity mentioned above to generate the planets
+                 in order to showcase the capabilities of the tool and the algorithm as part of my Bachelor's thesis.
+              </p>
+              <div class="project-wrapper__text-btns">
+                <a
+                  href="https://github.com/AlvaroChuan/System-Scape"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn cta-btn--hero cta-btn--projects"
+                  >Source Code</a>
+                <a href="./assets/Bachelor's_Thesis_Chuan_Díaz-Maroto_Álvaro.pdf" target="_blank" class="cta-btn text-color-main"
+                  >Bachelor's thesis</a
+                >
+                </div>
+            </div>
+
+            <div class="project-wrapper__image">
+              <a target="_blank" rel="noopener noreferrer">
+                <div class="thumbnail rounded">
+                  <img
+                    src="./assets/Main menu.jpg"
+                    class="img-fluid"
+                    alt="Project Image"
+                    width="1366"
+                    height="767"
+                  />
+                </div>
+              </a>
+            </div>
+          </article>
+
           <!-- Bezier Curves Mesh -->
           <article class="row">
             <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Bezier Curves Mesh Tool for Unity</h3>
+              <h3 class="project-wrapper__text-title">Interactive Bézier-Based 2D Extrusion Tool For Unity</h3>
               <p class="project-wrapper__text-info">
                 Evolution of the tool used in Project: Rush! This is a tool for Unity that allows the user
                 to generate procedural meshes based on Bezier curves inside Unity's editor.
                 The user can provide any 2D shape as the base of the mesh and then the tool will extrude it along the Bezier curve
                 generating a 3D mesh. The user can also modify the shape of the mesh by modifying the control points of the curve,
                 twisting, rotating or moving the mesh. The tool also allows the use to change the ammount of segments of the mesh and
-                store this mesh to use it in the game.
+                store this mesh to use it in the game. A short paper was published in the CEIG 2025 conference about the tool and its benefits for the game development process.
               </p>
               <div class="project-wrapper__text-btns">
                 <a
@@ -187,6 +265,9 @@
                   rel="noopener noreferrer"
                   class="cta-btn cta-btn--hero cta-btn--projects"
                   >Unity Asset Store</a>
+                <a href="https://diglib.eg.org/items/2e8d56b9-4aa6-4a66-9bff-6ce3d3550906" target="_blank" class="cta-btn text-color-main"
+                  >Short Paper</a
+                >
                 </div>
             </div>
 
