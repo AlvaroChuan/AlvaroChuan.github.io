@@ -214,14 +214,14 @@ function ProjectCard({ proj }: { proj: ProjectData }) {
         </div>
 
         {/* Footer Action Links */}
-        <div className="pt-3 border-t border-[#1e2838] flex items-center justify-between mt-auto">
+        <div className="pt-3 border-t border-[#1e2838] flex flex-wrap items-center justify-between gap-2 mt-auto">
           <span className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-300 group-hover:text-[#f5005f] transition-colors font-medium">
             <span>Inspect</span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </span>
 
           {/* External quick links with dedicated brand/type icons (stopPropagation prevents navigating to case study) */}
-          <div className="flex items-center gap-1">
+          <div className="flex flex-wrap items-center gap-1">
             {proj.links?.steam && (
               <button
                 type="button"
@@ -380,10 +380,10 @@ export default function ProjectShowcase({ projects }: Props) {
     <div className="w-full">
       {/* Filter Tabs Bar */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#1e2838] pb-4 mb-8">
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={() => handleFilterChange('all')}
-            className={`px-3 py-1.5 rounded-md text-xs font-mono font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
+            className={`px-2.5 sm:px-3 py-1.5 rounded-md text-[11px] sm:text-xs font-mono font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
               filter === 'all'
                 ? 'bg-[#f5005f] text-white shadow-lg shadow-[#f5005f]/25 border border-[#f5005f]'
                 : 'bg-[#121822] text-slate-400 hover:text-slate-200 border border-[#1e2838]'
@@ -396,7 +396,7 @@ export default function ProjectShowcase({ projects }: Props) {
 
           <button
             onClick={() => handleFilterChange('gameplay')}
-            className={`px-3 py-1.5 rounded-md text-xs font-mono font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
+            className={`px-2.5 sm:px-3 py-1.5 rounded-md text-[11px] sm:text-xs font-mono font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
               filter === 'gameplay'
                 ? 'bg-[#f5005f] text-white shadow-lg shadow-[#f5005f]/25 border border-[#f5005f]'
                 : 'bg-[#121822] text-slate-400 hover:text-slate-200 border border-[#1e2838]'
@@ -409,7 +409,7 @@ export default function ProjectShowcase({ projects }: Props) {
 
           <button
             onClick={() => handleFilterChange('tools')}
-            className={`px-3 py-1.5 rounded-md text-xs font-mono font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
+            className={`px-2.5 sm:px-3 py-1.5 rounded-md text-[11px] sm:text-xs font-mono font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
               filter === 'tools'
                 ? 'bg-[#f5005f] text-white shadow-lg shadow-[#f5005f]/25 border border-[#f5005f]'
                 : 'bg-[#121822] text-slate-400 hover:text-slate-200 border border-[#1e2838]'

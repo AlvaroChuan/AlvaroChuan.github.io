@@ -19,7 +19,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://alvaroch
 ---
 
 <!doctype html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="dark scroll-smooth max-w-full overflow-x-clip">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,9 +56,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://alvaroch
     <meta property="twitter:image" content={image} />
   </head>
 
-  <body class="bg-[#0b0f14] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-[#f5005f] selection:text-white engine-grid-bg">
+  <body class="bg-[#0b0f14] text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-[#f5005f] selection:text-white engine-grid-bg max-w-full overflow-x-clip">
     <Header />
-    <main class="flex-1 w-full">
+    <main class="flex-1 w-full max-w-full overflow-x-clip">
       <slot />
     </main>
     <Footer />

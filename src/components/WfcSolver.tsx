@@ -386,34 +386,34 @@ export default function WfcSolver() {
       </div>
 
       {/* Realtime Metrics Bar */}
-      <div className="grid grid-cols-3 gap-2 my-3 text-center text-xs">
-        <div className="bg-[#0b0f14] p-1.5 rounded border border-[#1e2838]">
+      <div className="grid grid-cols-3 gap-1.5 sm:gap-2 my-3 text-center text-xs">
+        <div className="bg-[#0b0f14] p-1.5 rounded border border-[#1e2838] min-w-0">
           <div className="text-[10px] text-slate-500 uppercase">Step</div>
           <div className="font-bold text-slate-200">#{stepCount}</div>
         </div>
-        <div className="bg-[#0b0f14] p-1.5 rounded border border-[#1e2838]">
+        <div className="bg-[#0b0f14] p-1.5 rounded border border-[#1e2838] min-w-0">
           <div className="text-[10px] text-slate-500 uppercase">Entropy Left</div>
-          <div className="font-bold text-[#00e5ff]">{TOTAL_VISIBLE_CELLS - collapsedInnerCount} cells</div>
+          <div className="font-bold text-[#00e5ff] text-[11px] sm:text-xs truncate">{TOTAL_VISIBLE_CELLS - collapsedInnerCount} cells</div>
         </div>
-        <div className="bg-[#0b0f14] p-1.5 rounded border border-[#1e2838]">
+        <div className="bg-[#0b0f14] p-1.5 rounded border border-[#1e2838] min-w-0">
           <div className="text-[10px] text-slate-500 uppercase">Progress</div>
           <div className="font-bold text-[#f5005f]">{progressPercent}%</div>
         </div>
       </div>
 
       {/* Status banner */}
-      <div className="flex items-center justify-between px-2.5 py-1.5 rounded bg-[#0b0f14] text-[11px] mb-3 border border-[#1e2838]">
-        <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between px-2.5 py-1.5 rounded bg-[#0b0f14] text-[11px] mb-3 border border-[#1e2838] overflow-hidden">
+        <div className="flex items-center gap-2 min-w-0">
           {status === 'completed' ? (
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
           ) : status === 'contradiction' ? (
-            <AlertTriangle className="w-3.5 h-3.5 text-[#f5005f]" />
+            <AlertTriangle className="w-3.5 h-3.5 text-[#f5005f] shrink-0" />
           ) : isRunning ? (
-            <div className="w-2 h-2 rounded-full bg-[#00e5ff] animate-ping" />
+            <div className="w-2 h-2 rounded-full bg-[#00e5ff] animate-ping shrink-0" />
           ) : (
-            <div className="w-2 h-2 rounded-full bg-slate-500" />
+            <div className="w-2 h-2 rounded-full bg-slate-500 shrink-0" />
           )}
-          <span className="text-slate-300">
+          <span className="text-slate-300 truncate text-[10px] sm:text-[11px]">
             {status === 'completed'
               ? 'CONVERGED TO HARMONIC STATE'
               : status === 'contradiction'
@@ -426,7 +426,7 @@ export default function WfcSolver() {
       </div>
 
       {/* Control Buttons: Play, Pause, Step, Reset all separated */}
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
         {/* Play Button */}
         <button
           onClick={() => {
@@ -437,28 +437,28 @@ export default function WfcSolver() {
             }
           }}
           disabled={isRunning && status !== 'completed' && status !== 'contradiction'}
-          className={`py-1.5 px-2 rounded text-xs font-bold flex items-center justify-center gap-1 transition-all cursor-pointer ${
+          className={`py-1.5 px-1 sm:px-2 rounded text-[11px] sm:text-xs font-bold flex items-center justify-center gap-0.5 sm:gap-1 transition-all cursor-pointer ${
             !isRunning
               ? 'bg-[#f5005f] text-white hover:bg-[#d60053] shadow-md shadow-[#f5005f]/20'
               : 'bg-[#192230] text-slate-500 border border-[#253245] opacity-50 cursor-not-allowed'
           }`}
           title="Start Solving"
         >
-          <Play className="w-3.5 h-3.5" /> Play
+          <Play className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" /> Play
         </button>
 
         {/* Pause Button */}
         <button
           onClick={() => setIsRunning(false)}
           disabled={!isRunning}
-          className={`py-1.5 px-2 rounded text-xs font-bold flex items-center justify-center gap-1 transition-all cursor-pointer ${
+          className={`py-1.5 px-1 sm:px-2 rounded text-[11px] sm:text-xs font-bold flex items-center justify-center gap-0.5 sm:gap-1 transition-all cursor-pointer ${
             isRunning
               ? 'bg-[#192230] text-slate-200 border border-[#253245] hover:border-[#00e5ff] hover:text-[#00e5ff]'
               : 'bg-[#192230] text-slate-500 border border-[#253245] opacity-50 cursor-not-allowed'
           }`}
           title="Pause Solver"
         >
-          <Pause className="w-3.5 h-3.5" /> Pause
+          <Pause className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" /> Pause
         </button>
 
         {/* Step Button */}
@@ -468,19 +468,19 @@ export default function WfcSolver() {
             stepCollapse();
           }}
           disabled={status === 'completed' || status === 'contradiction'}
-          className="py-1.5 px-2 rounded text-xs bg-[#192230] text-slate-200 border border-[#253245] hover:bg-[#202b3d] hover:border-[#f5005f] flex items-center justify-center gap-1 transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+          className="py-1.5 px-1 sm:px-2 rounded text-[11px] sm:text-xs bg-[#192230] text-slate-200 border border-[#253245] hover:bg-[#202b3d] hover:border-[#f5005f] flex items-center justify-center gap-0.5 sm:gap-1 transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
           title="Single Step"
         >
-          <SkipForward className="w-3.5 h-3.5" /> Step
+          <SkipForward className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" /> Step
         </button>
 
         {/* Reset Button */}
         <button
           onClick={() => initGrid(true)}
-          className="py-1.5 px-2 rounded text-xs bg-[#192230] text-slate-200 border border-[#253245] hover:bg-[#202b3d] hover:text-[#00e5ff] hover:border-[#00e5ff] flex items-center justify-center gap-1 transition-all cursor-pointer"
+          className="py-1.5 px-1 sm:px-2 rounded text-[11px] sm:text-xs bg-[#192230] text-slate-200 border border-[#253245] hover:bg-[#202b3d] hover:text-[#00e5ff] hover:border-[#00e5ff] flex items-center justify-center gap-0.5 sm:gap-1 transition-all cursor-pointer"
           title="Reset and Re-seed"
         >
-          <RotateCcw className="w-3.5 h-3.5" /> Reset
+          <RotateCcw className="w-3 h-3 sm:w-3.5 sm:h-3.5 shrink-0" /> Reset
         </button>
       </div>
     </div>
