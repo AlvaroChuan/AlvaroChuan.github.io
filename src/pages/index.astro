@@ -1,0 +1,361 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import avatarImg from '../assets/avatar.png';
+import WfcSolver from '../components/WfcSolver';
+import ProjectShowcase from '../components/ProjectShowcase';
+import Icons from '../components/Icons.astro';
+
+const rawProjects = await getCollection('projects');
+const sortedProjects = rawProjects.sort((a, b) => a.data.order - b.data.order);
+const projectData = sortedProjects.map((p) => ({
+  id: p.id,
+  title: p.data.title,
+  subtitle: p.data.subtitle,
+  category: p.data.category,
+  tags: p.data.tags,
+  engine: p.data.engine,
+  language: p.data.language,
+  role: p.data.role,
+  timeline: p.data.timeline,
+  image: p.data.image,
+  video: p.data.video,
+  previewGif: p.data.previewGif,
+  links: p.data.links,
+}));
+---
+
+<Layout>
+  <!-- Hero Section -->
+  <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 border-b border-[#1e2838] overflow-hidden">
+    <!-- Subtle Ambient Glow -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[#f5005f]/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Hero Text (7 cols) -->
+        <div class="lg:col-span-7 flex flex-col items-start">
+          <!-- Terminal Status Pill -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#121822] border border-[#212c3d] text-xs font-mono text-slate-300 mb-6">
+            <span class="w-2 h-2 rounded-full bg-[#f5005f] animate-pulse"></span>
+            <span>BACKTOBITS STUDIO // UJI RESEARCHER // PHD STUDENT</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-100 tracking-tight leading-[1.1] mb-4">
+            Engineering robust <span class="text-[#f5005f]">tools</span> & responsive <span class="text-[#00e5ff]">gameplay</span>.
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-6 max-w-2xl">
+            I'm <strong class="text-white font-semibold">Álvaro Chuan Díaz-Maroto</strong> (<em>Hollowblink</em>). 
+            Co-Founder at <a href="https://backtobitsstudio.com" target="_blank" rel="noopener noreferrer" class="text-slate-200 underline decoration-[#f5005f] underline-offset-4 hover:text-[#f5005f] transition-colors">BackToBits Studio</a> and PhD Student at Universitat Jaume I (UJI / INIT).
+            Specializing in procedural generation algorithms, custom editor tools, and tactile game mechanics.
+          </p>
+
+          <!-- Core stats / credentials strip -->
+          <div class="grid grid-cols-3 gap-4 w-full max-w-lg mb-8 p-3 rounded-lg bg-[#121822]/80 border border-[#1e2838] font-mono text-xs">
+            <div>
+              <div class="text-[#f5005f] font-bold text-lg">Steam</div>
+              <div class="text-slate-400 text-[11px]">Shipped Demos & Titles</div>
+            </div>
+            <div>
+              <div class="text-[#00e5ff] font-bold text-lg">PhD Student</div>
+              <div class="text-slate-400 text-[11px]">Procedural Generation</div>
+            </div>
+            <div>
+              <div class="text-slate-200 font-bold text-lg">C# / C++</div>
+              <div class="text-slate-400 text-[11px]">Unity & Unreal Engines</div>
+            </div>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap items-center gap-3">
+            <a
+              href="#projects"
+              class="px-5 py-2.5 rounded-md bg-[#f5005f] hover:bg-[#d60053] text-white font-mono text-xs font-bold transition-all shadow-lg shadow-[#f5005f]/25 flex items-center gap-2 cursor-pointer"
+            >
+              <Icons name="wrench" class="w-4 h-4" />
+              <span>Explore projects & tools</span>
+              <Icons name="arrow-right" class="w-3.5 h-3.5" />
+            </a>
+
+            <a
+              href="/assets/CV-EN-2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-2.5 rounded-md bg-[#121822] hover:bg-[#18202d] text-slate-200 border border-[#212c3d] hover:border-[#f5005f] font-mono text-xs transition-all flex items-center gap-2 cursor-pointer"
+            >
+              <Icons name="file" class="w-4 h-4 text-[#f5005f]" />
+              <span>Download CV (PDF)</span>
+            </a>
+
+            <a
+              href="https://store.steampowered.com/app/4881340/KBoom/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-2.5 rounded-md bg-[#121822] hover:bg-[#18202d] text-slate-200 border border-[#212c3d] hover:border-[#00e5ff] font-mono text-xs transition-all flex items-center gap-2 cursor-pointer"
+            >
+              <Icons name="steam" class="w-4 h-4 text-[#00e5ff]" />
+              <span>K-Boom! on Steam</span>
+              <Icons name="external" class="w-3 h-3 text-slate-400" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Hero Interactive WFC Demo (5 cols) -->
+        <div class="lg:col-span-5 flex flex-col items-center">
+          <div class="w-90%">
+            <div class="text-center sm:text-left mb-2 text-xs font-mono text-slate-400 flex items-center justify-between">
+              <span>// INTERACTIVE SOLVER</span>
+              <span class="text-[#f5005f]">[LIVE ALGORITHM]</span>
+            </div>
+            <!-- Interactive React Island -->
+            <WfcSolver client:load />
+            <p class="text-[11px] font-mono text-slate-400 mt-2 text-center">
+              Interactive 2D Wave Function Collapse.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Competencies & Specializations -->
+  <section class="py-14 border-b border-[#1e2838] bg-[#0c1017]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-xs font-mono text-[#f5005f] mb-2">// TECHNICAL ARSENAL</div>
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-100 mb-8">
+        Architecture, Tooling & Mechanics Expertise
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1: Tool Programming -->
+        <div class="p-6 rounded-lg bg-[#121822] border border-[#1e2838] hover:border-[#f5005f]/50 transition-colors">
+          <div class="w-10 h-10 rounded-md bg-[#f5005f]/15 border border-[#f5005f]/40 flex items-center justify-center text-[#f5005f] mb-4">
+            <Icons name="wrench" class="w-5 h-5" />
+          </div>
+          <h3 class="text-lg font-bold text-slate-100 mb-2">Engine & Editor Tooling</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Building intuitive in-engine and in-game tools that accelerate designer workflows: custom gizmos, level authoring palettes, command-based undo/redo, spline extrusion and procedural content generation.
+          </p>
+          <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+            <span class="px-2 py-0.5 rounded bg-[#0b0f14] text-slate-300 border border-[#1e2838]">Unity UI Toolkit</span>
+            <span class="px-2 py-0.5 rounded bg-[#0b0f14] text-slate-300 border border-[#1e2838]">Undo/Redo Systems</span>
+            <span class="px-2 py-0.5 rounded bg-[#0b0f14] text-slate-300 border border-[#1e2838]">Custom Gizmos</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Procedural Generation -->
+        <div class="p-6 rounded-lg bg-[#121822] border border-[#1e2838] hover:border-[#00e5ff]/50 transition-colors">
+          <div class="w-10 h-10 rounded-md bg-[#00e5ff]/15 border border-[#00e5ff]/40 flex items-center justify-center text-[#00e5ff] mb-4">
+            <Icons name="cpu" class="w-5 h-5" />
+          </div>
+          <h3 class="text-lg font-bold text-slate-100 mb-2">Procedural Generation & Algorithm optimization</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            PhD research at Universitat Jaume I into procedural generation algorithms, Wave Function Collapse optimizations and GPU implementations.
+          </p>
+          <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+            <span class="px-2 py-0.5 rounded bg-[#0b0f14] text-slate-300 border border-[#1e2838]">WFC Algorithm</span>
+            <span class="px-2 py-0.5 rounded bg-[#0b0f14] text-slate-300 border border-[#1e2838]">GPU Implementations</span>
+            <span class="px-2 py-0.5 rounded bg-[#0b0f14] text-slate-300 border border-[#1e2838]">Constraint Propagation</span>
+            <span class="px-2 py-0.5 rounded bg-[#0b0f14] text-slate-300 border border-[#1e2838]">Parametric Splines</span>
+            <span class="px-2 py-0.5 rounded bg-[#0b0f14] text-slate-300 border border-[#1e2838]">World generation</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Gameplay Programming -->
+        <div class="p-6 rounded-lg bg-[#121822] border border-[#1e2838] hover:border-[#8758ff]/50 transition-colors">
+          <div class="w-10 h-10 rounded-md bg-[#8758ff]/15 border border-[#8758ff]/40 flex items-center justify-center text-[#8758ff] mb-4">
+            <Icons name="gamepad" class="w-5 h-5" />
+          </div>
+          <h3 class="text-lg font-bold text-slate-100 mb-2">Gameplay & Production Engineering</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Co-founding BackToBits Studio and architecting full gameplay pipelines: complex traffic systems, vehicle dynamics, multiplayer networking, and Steam SDK integration for indie game production.
+          </p>
+          <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+            <span class="px-2 py-0.5 rounded bg-[#0b0f14] text-slate-300 border border-[#1e2838]">Multihreading</span>
+            <span class="px-2 py-0.5 rounded bg-[#0b0f14] text-slate-300 border border-[#1e2838]">Multiplayer Networking</span>
+            <span class="px-2 py-0.5 rounded bg-[#0b0f14] text-slate-300 border border-[#1e2838]">Arcade Vehicle Physics</span>
+            <span class="px-2 py-0.5 rounded bg-[#0b0f14] text-slate-300 border border-[#1e2838]">Steam SDK Integration</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects & Tools Showcase -->
+  <section id="projects" class="py-16 md:py-24 border-b border-[#1e2838]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+        <div>
+          <div class="text-xs font-mono text-[#f5005f] mb-1">// SHOWCASE</div>
+          <h2 class="text-3xl font-extrabold text-slate-100 tracking-tight">
+            Featured Games & Tools
+          </h2>
+          <p class="text-sm text-slate-300 mt-1 max-w-xl">
+            Inspect deep-dive architectural breakdowns, problem statements, and production implementations.
+          </p>
+        </div>
+      </div>
+
+      <!-- Interactive React Project Showcase -->
+      <ProjectShowcase projects={projectData} client:load />
+    </div>
+  </section>
+
+  <!-- Research & Academic Section -->
+  <section id="tools" class="py-16 border-b border-[#1e2838] bg-[#0c1017]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7">
+          <div class="text-xs font-mono text-[#00e5ff] mb-2">// ACADEMIC RESEARCH</div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-100 mb-4">
+            Procedural Generation & Engine Graphics Research
+          </h2>
+          <p class="text-sm text-slate-300 leading-relaxed mb-4">
+            As a PhD Student at <strong class="text-slate-100">Universitat Jaume I (UJI)</strong> working alongside the <strong class="text-slate-100">GameRS (Game Research Group)</strong> at <strong class="text-slate-100">INIT (Institute of New Image Technologies)</strong> research group, my academic focus centers on solving hard algorithmic challenges in videogame development.
+          </p>
+          <p class="text-sm text-slate-300 leading-relaxed mb-6">
+            My work includes investigating constraint-satisfaction algorithms like <strong class="text-slate-100">Wave Function Collapse</strong> for automated level geometry, as well as <strong class="text-slate-100">Technology integration</strong> for real-life active environments.
+          </p>
+
+          <div class="flex flex-wrap gap-4 text-xs font-mono">
+            <!-- Google Scholar Profile Link -->
+            <a
+              href="https://scholar.google.es/citations?hl=es&user=fvj-11QAAAAJ"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-3.5 rounded bg-[#121822] hover:bg-[#18212e] border border-[#1e2838] hover:border-[#8758ff] transition-all flex items-center gap-3 group"
+            >
+              <div class="w-8 h-8 rounded bg-[#8758ff]/15 flex items-center justify-center text-[#8758ff]">
+                <Icons name="book" class="w-4 h-4" />
+              </div>
+              <div>
+                <span class="text-slate-200 font-bold block group-hover:text-[#8758ff] transition-colors">
+                  Google Scholar Profile
+                </span>
+                <span class="text-slate-400 text-[11px]">
+                  Publications & research citations
+                </span>
+              </div>
+              <Icons name="external" class="w-3.5 h-3.5 text-slate-500 group-hover:text-slate-300 ml-2" />
+            </a>
+
+            <!-- INIT Research Group Link -->
+            <div class="p-3.5 rounded bg-[#121822] border border-[#1e2838] flex items-center gap-3">
+              <div class="w-8 h-8 rounded bg-[#00e5ff]/15 flex items-center justify-center text-[#00e5ff]">
+                <Icons name="cpu" class="w-4 h-4" />
+              </div>
+              <div>
+                <span class="text-slate-200 font-bold block">GameRS Research group at INIT</span>
+                <span class="text-slate-400 text-[11px]">Universitat Jaume I (Castellón)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="p-6 rounded-lg bg-[#121822] border border-[#1e2838] font-mono text-xs">
+            <div class="text-slate-400 pb-3 border-b border-[#1e2838] mb-3 flex items-center justify-between">
+              <span>RESEARCH FOCUS</span>
+              <span class="text-emerald-400">STATUS: ONGOING</span>
+            </div>
+            <ul class="space-y-3 text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-[#f5005f] font-bold">01.</span>
+                <span>Bitwise & GPU constraint acceleration for 3D Wave Function Collapse grids.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#f5005f] font-bold">02.</span>
+                <span>Designer-in-the-loop procedural generation with anchor pinning.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#f5005f] font-bold">03.</span>
+                <span>Real-time content procedural generation.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#f5005f] font-bold">04.</span>
+                <span>Real-time technology integration for active environments.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me & BackToBits Studio -->
+  <section id="about" class="py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Photo and Visual Profile -->
+        <div class="lg:col-span-5 flex flex-col items-center sm:items-start">
+          <div class="relative w-100 h-100 sm:w-96 sm:h-96 rounded-xl overflow-hidden border-2 border-[#1e2838] shadow-2xl bg-[#121822] group">
+            <Image
+              src={avatarImg}
+              alt="Álvaro Chuan Díaz-Maroto"
+              width={384}
+              height={384}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+            <div class="absolute bottom-3 left-3 right-3 font-mono text-[11px] bg-[#0b0f14]/90 backdrop-blur-md p-2 rounded border border-[#1e2838] text-slate-300 flex items-center justify-between">
+              <span>ÁLVARO CHUAN DÍAZ-MAROTO</span>
+              <span class="text-[#f5005f]">DEV // RESEARCH</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio & Background -->
+        <div class="lg:col-span-7">
+          <div class="text-xs font-mono text-[#f5005f] mb-1">// ABOUT DEVELOPER</div>
+          <h2 class="text-3xl font-extrabold text-slate-100 tracking-tight mb-4">
+            From algorithmic research to shipping indie games.
+          </h2>
+
+          <div class="space-y-4 text-sm text-slate-300 leading-relaxed">
+            <p>
+              I graduated with a Degree in Videogame Development from <strong class="text-slate-100">Universitat Jaume I (UJI)</strong>. Early on, I realized my real passion was at the intersection of complex algorithms and empowering other developers with tools that let them work faster and cleaner.
+            </p>
+            <p>
+              I co-founded <strong class="text-slate-100">BackToBits Studio</strong>, an independent studio where we've built and showcased games like <em class="text-[#f5005f] font-medium">K-Boom!</em> and <em class="text-[#00e5ff] font-medium">GoblinMancer</em> at major Spanish events including the SAGA Barcelona Game Fest and the Guerrilla Game Festival. Within our team, I act as the lead programmer and tool engineer, building custom editor and managing the coding team.
+            </p>
+            <p>
+              Currently, I balance indie development with my PhD research into procedural generation and game tech, exploring how constraint-satisfaction algorithms can solve real production problems in modern game engines.
+            </p>
+          </div>
+
+          <!-- Quick Connect & Links -->
+          <div class="mt-8 pt-6 border-t border-[#1e2838] flex flex-wrap items-center gap-4">
+            <a
+              href="mailto:alvarochuandiazmaroto@gmail.com"
+              class="px-4 py-2 rounded bg-[#f5005f] hover:bg-[#d60053] text-white font-mono text-xs font-semibold transition-all flex items-center gap-2 cursor-pointer shadow-md shadow-[#f5005f]/20"
+            >
+              <span>Get In Touch</span>
+              <Icons name="arrow-right" class="w-3.5 h-3.5" />
+            </a>
+
+            <a
+              href="/assets/CV-EN-2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-2 rounded bg-[#121822] hover:bg-[#18202d] text-slate-200 border border-[#212c3d] hover:border-[#f5005f] font-mono text-xs transition-all flex items-center gap-2 cursor-pointer"
+            >
+              <Icons name="file" class="w-3.5 h-3.5 text-[#f5005f]" />
+              <span>Full Resume</span>
+            </a>
+
+            <a
+              href="https://hollowblink.itch.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-2 rounded bg-[#121822] hover:bg-[#18202d] text-slate-300 border border-[#212c3d] font-mono text-xs transition-all flex items-center gap-1.5 cursor-pointer"
+            >
+              <span>itch.io Prototypes</span>
+              <Icons name="external" class="w-3 h-3 text-slate-500" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,238 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import Icons from '../../components/Icons.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { data } = entry;
+const isTool = data.category === 'tools';
+---
+
+<Layout
+  title={`${data.title} | Álvaro Chuan Díaz-Maroto`}
+  description={data.subtitle}
+  image={data.image}
+>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <!-- Back button -->
+    <a
+      href="/#projects"
+      class="inline-flex items-center gap-2 text-xs font-mono text-slate-400 hover:text-[#f5005f] transition-colors mb-8 group"
+    >
+      <Icons name="arrow-left" class="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+      <span>// RETURN TO SHOWCASE</span>
+    </a>
+
+    <!-- Header Section -->
+    <header class="border-b border-[#1e2838] pb-8 mb-10">
+      <div class="flex flex-wrap items-center gap-2 mb-3">
+        <span
+          class={`text-xs font-mono px-2.5 py-0.5 rounded font-bold border ${
+            isTool
+              ? 'bg-[#f5005f]/15 text-[#f5005f] border-[#f5005f]/40'
+              : 'bg-[#00e5ff]/15 text-[#00e5ff] border-[#00e5ff]/40'
+          }`}
+        >
+          {isTool ? '[TOOL // RESEARCH]' : '[GAME // PRODUCTION]'}
+        </span>
+        <span class="text-xs font-mono px-2 py-0.5 rounded bg-[#121822] text-slate-300 border border-[#1e2838]">
+          {data.engine}
+        </span>
+        <span class="text-xs font-mono px-2 py-0.5 rounded bg-[#121822] text-slate-300 border border-[#1e2838]">
+          {data.language}
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight mb-3">
+        {data.title}
+      </h1>
+      <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">
+        {data.subtitle}
+      </p>
+
+      <!-- Action Links -->
+      <div class="flex flex-wrap items-center gap-3 mt-6">
+        {data.links?.steam && (
+          <a
+            href={data.links.steam}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-mono font-semibold px-4 py-2 rounded bg-[#f5005f] hover:bg-[#d60053] text-white shadow-lg shadow-[#f5005f]/20 transition-all cursor-pointer"
+          >
+            <Icons name="steam" class="w-4 h-4" />
+            <span>View on Steam</span>
+            <Icons name="external" class="w-3.5 h-3.5" />
+          </a>
+        )}
+
+        {data.links?.demo && (
+          <a
+            href={data.links.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-mono font-semibold px-4 py-2 rounded bg-[#161f2d] hover:bg-[#1d293b] text-slate-200 border border-[#212c3d] hover:border-[#00e5ff] transition-all cursor-pointer"
+          >
+            <Icons name="gamepad" class="w-4 h-4 text-[#00e5ff]" />
+            <span>Play Steam Demo</span>
+            <Icons name="external" class="w-3.5 h-3.5" />
+          </a>
+        )}
+
+        {data.links?.itch && (
+          <a
+            href={data.links.itch}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-mono font-semibold px-4 py-2 rounded bg-[#161f2d] hover:bg-[#1d293b] text-slate-200 border border-[#212c3d] hover:border-[#fa5c5c] transition-all cursor-pointer"
+          >
+            <Icons name="itch" class="w-4 h-4 text-[#fa5c5c]" />
+            <span>Play on itch.io</span>
+            <Icons name="external" class="w-3.5 h-3.5" />
+          </a>
+        )}
+
+        {data.links?.assetStore && (
+          <a
+            href={data.links.assetStore}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-mono font-semibold px-4 py-2 rounded bg-[#161f2d] hover:bg-[#1d293b] text-slate-200 border border-[#212c3d] hover:border-white transition-all cursor-pointer"
+          >
+            <Icons name="unity" class="w-4 h-4 text-white" />
+            <span>Unity Asset Store</span>
+            <Icons name="external" class="w-3.5 h-3.5" />
+          </a>
+        )}
+
+        {data.links?.github && (
+          <a
+            href={data.links.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-mono font-semibold px-4 py-2 rounded bg-[#161f2d] hover:bg-[#1d293b] text-slate-200 border border-[#212c3d] hover:border-white transition-all cursor-pointer"
+          >
+            <Icons name="github" class="w-4 h-4" />
+            <span>Source Code</span>
+            <Icons name="external" class="w-3.5 h-3.5" />
+          </a>
+        )}
+
+        {data.links?.paper && (
+          <a
+            href={data.links.paper}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-mono font-semibold px-4 py-2 rounded bg-[#161f2d] hover:bg-[#1d293b] text-slate-200 border border-[#212c3d] hover:border-[#8758ff] transition-all cursor-pointer"
+          >
+            <Icons name="book" class="w-4 h-4 text-[#8758ff]" />
+            <span>{data.links.paper.toLowerCase().includes('thesis') ? "Bachelor's Thesis" : "Research Paper"}</span>
+            <Icons name="external" class="w-3.5 h-3.5" />
+          </a>
+        )}
+
+        {data.links?.video && (
+          <a
+            href={data.links.video}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-mono font-semibold px-4 py-2 rounded bg-[#161f2d] hover:bg-[#1d293b] text-slate-200 border border-[#212c3d] hover:border-[#ff0000] transition-all cursor-pointer"
+          >
+            <Icons name="youtube" class="w-4 h-4 text-[#ff0000]" />
+            <span>Watch Video</span>
+            <Icons name="external" class="w-3.5 h-3.5" />
+          </a>
+        )}
+
+        {data.links?.studio && (
+          <a
+            href={data.links.studio}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-xs font-mono font-semibold px-4 py-2 rounded bg-[#161f2d] hover:bg-[#1d293b] text-slate-300 border border-[#212c3d] hover:border-slate-500 transition-all cursor-pointer"
+          >
+            <span>BackToBits Studio</span>
+            <Icons name="external" class="w-3.5 h-3.5" />
+          </a>
+        )}
+      </div>
+
+      <!-- Project Metadata Strip -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-[#1a2333] text-xs font-mono">
+        <div>
+          <span class="text-slate-400 block text-[10px] uppercase">My Role</span>
+          <span class="text-slate-200 font-semibold">{data.role}</span>
+        </div>
+        <div>
+          <span class="text-slate-400 block text-[10px] uppercase">Category</span>
+          <span class="text-slate-200 font-semibold uppercase">{data.category}</span>
+        </div>
+        <div>
+          <span class="text-slate-400 block text-[10px] uppercase">Timeline</span>
+          <span class="text-slate-200 font-semibold">{data.timeline || '2024'}</span>
+        </div>
+        <div>
+          <span class="text-slate-400 block text-[10px] uppercase">Core Tech</span>
+          <span class="text-slate-200 font-semibold">{data.language}</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Visual Banner or Showcase Video -->
+    <div class="rounded-lg overflow-hidden border border-[#212c3d] bg-[#0c1017] mb-12 shadow-2xl relative">
+      {data.video ? (
+        <video
+          src={data.video}
+          poster={data.image}
+          controls
+          autoplay
+          loop
+          muted
+          playsinline
+          class="w-full h-auto object-cover max-h-[550px]"
+        />
+      ) : (
+        <Image
+          src={data.image}
+          alt={data.title}
+          width={1280}
+          height={720}
+          loading="eager"
+          fetchpriority="high"
+          class="w-full h-auto object-cover max-h-[500px]"
+        />
+      )}
+    </div>
+
+    <!-- Case Study Body Content (Markdown) -->
+    <div class="project-prose max-w-none">
+      <Content />
+    </div>
+
+    <!-- Back to top / Return button -->
+    <div class="mt-16 pt-8 border-t border-[#1e2838] flex items-center justify-between">
+      <a
+        href="/#projects"
+        class="inline-flex items-center gap-2 text-xs font-mono text-slate-300 hover:text-[#f5005f] transition-colors"
+      >
+        <Icons name="arrow-left" class="w-4 h-4" />
+        <span>Return to all projects</span>
+      </a>
+      <a
+        href="#"
+        class="text-xs font-mono text-slate-400 hover:text-white transition-colors"
+      >
+        Back to top ↑
+      </a>
+    </div>
+  </article>
+</Layout>

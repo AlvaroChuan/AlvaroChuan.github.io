@@ -1,0 +1,35 @@
+---
+title: "Procedural Spline Tool"
+subtitle: "Real-time parametric curve deformation, mesh extrusion, and level design pipeline tool"
+category: "tools"
+order: 5
+featured: true
+tags: ["Editor Tooling", "Mesh Generation", "Splines", "Procedural Geometry", "Level Design"]
+engine: "Unity Engine"
+language: "C# / HLSL"
+role: "Tool Programmer & Technical Designer"
+timeline: "2023 - 2024"
+links:
+  assetStore: "https://assetstore.unity.com/packages/tools/modeling/b-zier-extrude-tool-301777"
+  paper: "https://diglib.eg.org/items/2e8d56b9-4aa6-4a66-9bff-6ce3d3550906"
+  video: "https://www.youtube.com/watch?v=3FrSmNOfk1c"
+image: "/assets/projects/procedural-spline-tool.webp"
+---
+
+## Summary
+
+The **Procedural Spline Tool** is an editor extension designed to streamline the creation of winding roads, rail tracks, cables, tunnels, and organic environmental paths. 
+
+Built to replace repetitive manual asset snapping, it allows level designers and environment artists to shape continuous 3D paths in the viewport while generating optimized, UV-mapped geometry and seamless collision meshes in real time.
+
+## Responsibilities
+
+* **Rotation Minimizing Frames (RMF):** Implemented Wang et al.'s Double Reflection method to propagate continuous coordinate frames along 3D curves, eliminating the gimbal lock and 180-degree twist singularities inherent to traditional Frenet-Serret frames.
+* **Arc-Length Parameterization:** Built a discrete cumulative distance lookup table (LUT) with binary search interpolation, ensuring consistent UV texture coordinate mapping and vertex spacing regardless of curve tightness.
+* **Dynamic Mesh & Collision Generation:** Designed real-time procedural index buffer synthesis, vertex normal computation, and asynchronous physics collider generation.
+* **Non-Destructive Static Baking:** Engineered a one-click baking utility that strips editor overhead, removes interior hidden faces, and produces optimized static scene prefabs for release builds.
+
+## Current Status & Reception
+
+* **Production Workflow Impact:** Reduced environment pathway authoring times down to approximately **15% of previous manual placement time**, completely eliminating visible mesh seams and collision catches.
+* **Developer Reception:** Demonstrated publicly with good reception from indie technical artists and level designers seeking lightweight, in-engine procedural path tools.

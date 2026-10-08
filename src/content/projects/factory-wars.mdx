@@ -1,0 +1,34 @@
+---
+title: "Factory Wars"
+subtitle: "Nintendo DS homebrew lane defense game written in C with DevKitPro and NightFox Lib"
+category: "gameplay"
+order: 13
+featured: false
+tags: ["Homebrew", "Nintendo DS", "C Programming", "DevKitPro", "Low-Level Optimization"]
+engine: "Nintendo DS (DevKitPro / NightFox's Lib)"
+language: "C"
+role: "Programmer & Systems Architect"
+timeline: "2022"
+links:
+  itch: "https://hollowblink.itch.io/factory-wars"
+image: "/assets/projects/factory-wars.png"
+---
+
+## Summary
+
+**Factory Wars** is a retro lane defense game built specifically for the **Nintendo DS** homebrew environment, written from the ground up in **C** using **DevKitPro** and **NightFox's Lib**.
+
+Developed collaboratively with Mario Beltrán García and Edward Alejandro Mena Ordóñez for the *Game Consoles* course at **Universitat Jaume I**, the game fuses *Plants vs. Zombies*-style lane defense mechanics with economic resource management. Players defend their industrial complex against waves of hostile machines while allocating generated resources toward defensive turrets and revenue-generating factory modules.
+
+## Responsibilities
+
+* **Dual-Screen Hardware Pipeline:** Configured and programmed the Nintendo DS video hardware registers and VRAM banks, assigning interactive gameplay and touch control to the bottom screen while rendering resource readouts, radar, and status telemetry on the top screen.
+* **Stylus Touch Input Handling:** Implemented low-level touch coordinate polling, grid bounding box snapping, and placement validation routines tailored to the resistive digitizer.
+* **VRAM & Sprite Optimization:** Managed hardware 2D sprite memory allocations, OAM tables, and background tilemap streaming to stay comfortably within the strict 4 MB RAM constraints of the DS architecture.
+* **Lane Defense Gameplay & Collision Logic:** Engineered integer-based lane collision detection, projectile velocity vectors, dynamic enemy spawn waves, and turret fire rate timers in pure C.
+
+## Current Status & Reception
+
+* **Native ROM Distribution:** Packaged and validated as a native `.nds` ROM file fully functional on original Nintendo DS hardware via flash cartridges (R4) and modern emulators (MelonDS / DeSmuME).
+* **Course Accolades:** Evaluated with top honors in the Game Consoles course at UJI for low-level memory efficiency, execution stability, and faithful retro feel.
+* **Open Distribution:** Playable ROM and source code released on [itch.io](https://hollowblink.itch.io/factory-wars).

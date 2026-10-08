@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #f5005f;
+  --color-brand-primary-hover: #d60053;
+  --color-brand-secondary: #8758ff;
+  --color-brand-cyan: #00e5ff;
+  --color-brand-dark: #0b0f14;
+  --color-brand-surface: #121822;
+  --color-brand-surface-hover: #192130;
+  --color-brand-border: #1e2838;
+  --color-brand-border-bright: #2c3b52;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Custom background grid pattern for game-engine aesthetic */
+.engine-grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(30, 40, 56, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 40, 56, 0.25) 1px, transparent 1px);
+}
+
+.engine-dots-bg {
+  background-image: radial-gradient(rgba(245, 0, 95, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Custom crisp scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0f14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e2838;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f5005f;
+}
+
+/* Project Case Study Typography & Section Spacing */
+.project-prose {
+  color: #cbd5e1;
+}
+
+/* Section Headings with generous breathing room and accent bar */
+.project-prose h2 {
+  font-size: 1.625rem;
+  line-height: 2.25rem;
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: -0.025em;
+  margin-top: 4.5rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .project-prose h2 {
+    font-size: 1.875rem;
+    margin-top: 5.5rem;
+  }
+}
+
+.project-prose h2:first-of-type {
+  margin-top: 0;
+}
+
+.project-prose h2::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 1.5rem;
+  background-color: #f5005f;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+/* Paragraphs */
+.project-prose p {
+  color: #cbd5e1;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Bullet Lists with distinct spacing between items */
+.project-prose ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.project-prose li {
+  position: relative;
+  padding-left: 1.75rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #cbd5e1;
+}
+
+@media (min-width: 640px) {
+  .project-prose li {
+    font-size: 1.0625rem;
+  }
+}
+
+/* Custom crisp magenta bullet dot */
+.project-prose li::before {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  top: 0.65rem;
+  width: 7px;
+  height: 7px;
+  background-color: #f5005f;
+  border-radius: 9999px;
+}
+
+/* Bold highlights */
+.project-prose strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Interactive Links */
+.project-prose a {
+  color: #f5005f;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.project-prose a:hover {
+  text-decoration: underline;
+}
+
+/* Remove awkward horizontal dividing lines */
+.project-prose hr {
+  display: none !important;
+}

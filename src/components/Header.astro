@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import logoImg from '../assets/logo.png';
+---
+
+<header class="sticky top-0 z-50 w-full bg-[#0b0f14]/85 backdrop-blur-md border-b border-[#1e2838]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Brand / Logo -->
+    <a href="/" class="flex items-center gap-3 group">
+      <div class="w-9 h-9 rounded-md bg-[#121822] border border-[#212c3d] group-hover:border-[#f5005f] flex items-center justify-center p-1.5 transition-colors shadow-sm overflow-hidden">
+        <Image src={logoImg} alt="Hollowblink Logo" width={48} height={48} loading="eager" fetchpriority="high" class="w-full h-full object-contain" />
+      </div>
+      <div>
+        <div class="text-sm font-bold tracking-wider text-slate-100 font-mono group-hover:text-[#f5005f] transition-colors flex items-center gap-2">
+          <span>ÁLVARO CHUAN DÍAZ-MAROTO</span>
+          <span class="text-[10px] text-[#f5005f] font-normal border border-[#f5005f]/40 px-1.5 py-0.2 rounded bg-[#f5005f]/10">HOLLOWBLINK</span>
+        </div>
+        <div class="text-[11px] font-mono text-slate-400">GAME & TOOLS ENGINEER</div>
+      </div>
+    </a>
+
+    <!-- Nav Links (Aligned to the right) -->
+    <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-mono text-slate-300">
+      <a href="/#projects" class="hover:text-[#f5005f] transition-colors">
+        // PROJECTS
+      </a>
+      <a href="/#tools" class="hover:text-[#f5005f] transition-colors">
+        // TOOLS & RESEARCH
+      </a>
+      <a href="/#about" class="hover:text-[#f5005f] transition-colors">
+        // ABOUT
+      </a>
+      <a
+        href="/assets/CV-EN-2026.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-[#f5005f] transition-colors"
+      >
+        // RESUME
+      </a>
+    </nav>
+  </div>
+</header>

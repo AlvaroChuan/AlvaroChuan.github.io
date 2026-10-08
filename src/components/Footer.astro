@@ -1,0 +1,67 @@
+---
+import Icons from './Icons.astro';
+---
+
+<footer class="w-full bg-[#0b0f14] border-t border-[#1e2838] py-12 px-4 sm:px-6 lg:px-8 font-mono text-xs text-slate-400">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex flex-col items-center md:items-start gap-1">
+      <div class="flex items-center gap-2 text-slate-200 font-bold">
+        <span>ÁLVARO CHUAN DÍAZ-MAROTO</span>
+        <span class="text-[#f5005f]">// HOLLOWBLINK</span>
+      </div>
+      <p class="text-slate-400">
+        Videogame Developer (Tools & Gameplay) • Co-Founder @ <a href="https://backtobits.com" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-[#f5005f] transition-colors underline decoration-[#1e2838] underline-offset-4">BackToBits Studio</a> • PhD Student @ UJI
+      </p>
+    </div>
+
+    <!-- Social links -->
+    <div class="flex items-center gap-4 text-slate-400">
+      <a
+        href="https://hollowblink.itch.io"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-[#fa5c5c] transition-colors flex items-center gap-1.5"
+      >
+        <Icons name="itch" class="w-3.5 h-3.5 text-[#fa5c5c]" />
+        <span>itch.io</span>
+      </a>
+      <a
+        href="https://github.com/alvarochuan"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-[#f5005f] transition-colors flex items-center gap-1.5"
+      >
+        <span>GitHub</span>
+        <Icons name="github" class="w-3.5 h-3.5" />
+      </a>
+      <a
+        href="https://bsky.app/profile/hollowblink.bsky.social"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-[#f5005f] transition-colors flex items-center gap-1.5"
+      >
+        <span>Bluesky</span>
+        <Icons name="bluesky" class="w-3.5 h-3.5" />
+      </a>
+      <a
+        href="https://twitter.com/hollowblink"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-[#f5005f] transition-colors flex items-center gap-1.5"
+      >
+        <span>X / Twitter</span>
+        <Icons name="twitter" class="w-3.5 h-3.5" />
+      </a>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto mt-8 pt-6 border-t border-[#161f2c] flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 gap-2">
+    <div>
+      © {new Date().getFullYear()} Álvaro Chuan Díaz-Maroto. Built with Astro & Tailwind.
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span>SYSTEM STATUS: OPERATIONAL</span>
+    </div>
+  </div>
+</footer>

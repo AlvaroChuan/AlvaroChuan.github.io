@@ -1,0 +1,37 @@
+---
+title: "Wave Function Collapse Tool"
+subtitle: "Procedural constraint satisfaction system and level generator for game engines"
+category: "tools"
+order: 4
+featured: true
+tags: ["Procedural Generation", "Algorithms", "Constraint Solving", "Editor Tooling", "Research"]
+engine: "Unreal Engine & C++"
+language: "C++ / HLSL"
+role: "Lead Researcher & Tool Developer"
+timeline: "2025 - Present"
+links:
+  github: "https://github.com/AlvaroChuan/WFC-Unity-Tool"
+  paper: "/assets/bachelor-thesis.pdf"
+  video: "https://www.youtube.com/watch?v=OrIcIW4KoSY"
+image: "/assets/projects/wfc-tool.jpg"
+---
+
+## Summary
+
+The **Wave Function Collapse (WFC) Tool** is an advanced procedural content generation system rooted in constraint satisfaction and quantum superposition analogies. 
+
+Developed as part of ongoing **PhD research at Universitat Jaume I (UJI / INIT)** and tailored for practical game engine workflows, the tool empowers level designers to define tile adjacency sockets and synthesize non-repeating, topologically consistent 2D and 3D environment layouts in real time.
+
+## Responsibilities
+
+* **Bitwise Constraint Propagation:** Formulated tile socket compatibility as 64-bit integer bitmasks, reducing neighbor constraint validation to rapid bitwise `AND` operations and removing runtime hash map lookups.
+* **Shannon Entropy Solver:** Designed a high-performance cell observation loop utilizing an indexed binary min-heap to locate the lowest-entropy cell in $O(1)$ time across large 3D grids.
+* **Interactive Editor Integration:** Built a custom viewport brush tool enabling designers to lock or "pin" specific anchor tiles (e.g., entrances, landmarks, boss rooms), with the solver dynamically collapsing the remaining grid around designer constraints.
+* **Contradiction Handling & Backtracking:** Implemented bounded rollback checkpoints and localized cluster relaxation algorithms to resolve contradiction deadlocks without freezing the editor viewport.
+
+## Current Status & Reception
+
+* **Bachelor's Thesis (Honors):** The tool was engineered as part of Álvaro's Bachelor's Thesis at Universitat Jaume I, earning the highest evaluation grade and top honors (Matrícula de Honor). You can read the complete [Bachelor's Thesis](/assets/bachelor-thesis.pdf).
+* **Academic Presentation:** Research and algorithmic results presented at academic forums and conferences (including SECIVI), focusing on real-time procedural constraint satisfaction for production pipelines.
+* **Google Scholar Citation:** Core findings and methodologies documented in academic publications indexed on [Google Scholar](https://scholar.google.com).
+* **Production Impact:** Reduced dungeon and environment layout blockout times from hours of manual placement to seconds of guided generation, with mathematical guarantees of topological connectivity.

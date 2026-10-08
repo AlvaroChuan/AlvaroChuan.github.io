@@ -1,0 +1,34 @@
+---
+title: "K-Boom! Level Editor"
+subtitle: "In-engine level editor fully integrated into the Unity Editor pipeline"
+category: "tools"
+order: 6
+featured: true
+tags: ["In-Game Tooling", "Unity UI Toolkit", "Command Pattern", "Serialization", "Level Design"]
+engine: "Unity Engine"
+language: "C#"
+role: "Tool Programmer"
+timeline: "2026"
+links:
+  studio: "https://backtobitsstudio.com"
+image: "/assets/projects/k-boom-level-editor.png"
+---
+
+## Summary
+
+The **K-Boom! Level Editor** is the custom in-house tool built for **BackToBits Studio** to construct, balance, and validate all puzzle levels for the commercial release of *K-Boom!*.
+
+Designed to bridge designer intuition with strict puzzle mechanics, it empowers designers to paint multi-layered hazard rooms, specify level objectives, test gameplay, and export verified level packages as Json files.
+
+## Responsibilities
+
+* **Command Pattern Architecture:** Implemented a full multi-step Undo/Redo history stack utilizing memory-conscious delta commands, supporting complex batch operations like drag-painting tiles, moving selections, and trigger re-wiring.
+* **Instant State Snapshotting:** Built to save the levels as Json files to be loaded in runtime during the game execution.
+* **Interactive 3D viewport:** Actual 3D representation of the level so designer know before hand how will the level look inside the game while still in the editor.
+* **Serialization & Versioning:** Programmed a bidirectional JSON serialization pipeline with versioned migration routines for seamless backward compatibility across game updates.
+
+## Current Status & Reception
+
+* **100% Campaign Coverage:** Every single campaign chamber and public demo level in *K-Boom!* was authored, balanced, and validated using this tool.
+* **Turnaround Acceleration:** Reduced level authoring and playtesting iteration cycles from **~8 minutes per tweak down to under 5 seconds**, dramatically increasing designer throughput at BackToBits Studio.
+* **Production Stability:** Maintained zero data corruption or unrecoverable state loss across hundreds of authored puzzle revisions.
